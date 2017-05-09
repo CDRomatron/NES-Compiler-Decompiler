@@ -1,0 +1,13 @@
+﻿<Window x:Class="NESCompilerDecompiler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NESCompilerDecompiler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="264.391" Width="364.83">
+    <Grid>
+        <Button x:Name="btnDecom" Content="Decompile" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="326" IsCancel="True" Height="101" Click="btnDecom_Click"/>
+        <Button x:Name="btnComp" Content="Compile" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="326" Height="76" Click="btnComp_Click"/>
+    </Grid>
+</Window>
