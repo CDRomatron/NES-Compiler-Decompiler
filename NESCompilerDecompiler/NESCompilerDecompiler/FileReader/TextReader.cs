@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace NESCompilerDecompiler.FileReader
 {
-    class TextReader
+    public class TextReader
     {
+
+
+
     }
 }

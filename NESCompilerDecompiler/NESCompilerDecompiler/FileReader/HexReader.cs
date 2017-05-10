@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace NESCompilerDecompiler.FileReader
 {
-    class HexReader
+    /*
+     * The function of the hexreader is to read in a file that is not currently in a text format, and convert it to a string.
+     */
+    public class HexReader
     {
+
+        public void ReadFile(string path)
+        {
+
+        }
+
     }
 }
