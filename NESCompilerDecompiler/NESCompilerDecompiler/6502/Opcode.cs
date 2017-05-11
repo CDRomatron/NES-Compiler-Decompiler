@@ -13,6 +13,11 @@ namespace NESCompilerDecompiler._6502
         public string hex;
         public int len;
 
+        public Opcode()
+        {
+
+        }
+
         public Opcode(string command, string hex, int len)
         {
             this.command = command;

@@ -38,5 +38,20 @@ namespace NESCompilerDecompiler._6502
 
         }
 
+        public Opcode HexToOpcode(string hex)
+        {
+            Opcode value = new Opcode();
+
+            foreach(Opcode opcode in opcodes)
+            {
+                if(opcode.hex == hex)
+                {
+                    value = opcode;
+                }
+            }
+
+            return value;
+        }
+
     }
 }
