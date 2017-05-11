@@ -44,6 +44,8 @@ namespace NESCompilerDecompiler
                 HexReader hr = new HexReader();
 
                 hr.ReadFile(path);
+
+                MessageBox.Show("Done!");
             }
             else
             {

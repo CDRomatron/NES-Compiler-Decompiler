@@ -40,7 +40,7 @@ namespace NESCompilerDecompiler._6502
 
         public Opcode HexToOpcode(string hex)
         {
-            Opcode value = new Opcode();
+            Opcode value = new Opcode("UND", "", 1);
 
             foreach(Opcode opcode in opcodes)
             {

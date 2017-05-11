@@ -67,9 +67,9 @@ namespace NESCompilerDecompiler.FileReader
             {
                 string romDataOutput = "";
                 Opcode oc = arc.HexToOpcode(romData[0]);
-                romDataOutput += (oc.command + "(" + oc.hex + ") ");
+                romDataOutput += (oc.command + "(" + romData[0] + ") ");
                 romData.RemoveAt(0);
-                for(int i = 0; i < oc.len; i++)
+                for(int i = 0; i < oc.len-1; i++)
                 {
                     romDataOutput += (romData[0] + " ");
                     romData.RemoveAt(0);
@@ -80,8 +80,6 @@ namespace NESCompilerDecompiler.FileReader
             }
             
             asmFile.Close();
-
-            Console.WriteLine("");
 
         }
 
