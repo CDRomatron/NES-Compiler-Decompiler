@@ -63,16 +63,18 @@ namespace NESCompilerDecompiler.FileReader
 
             StreamWriter asmFile = new StreamWriter(Path.GetFileNameWithoutExtension(path) + ".nesa");
 
-            while (romData.Count > 0)
+            for(int i = 0; i < romData.Count; i++)
             {
                 string romDataOutput = "";
-                Opcode oc = arc.HexToOpcode(romData[0]);
-                romDataOutput += (oc.command + "(" + romData[0] + ") ");
-                romData.RemoveAt(0);
-                for(int i = 0; i < oc.len-1; i++)
+                Opcode oc = arc.HexToOpcode(romData[i]);
+                romDataOutput += (oc.command + "(" + romData[i] + ") ");
+                for(int j = 0; j < oc.len-1; j++)
                 {
-                    romDataOutput += (romData[0] + " ");
-                    romData.RemoveAt(0);
+                    i++;
+                    if(i < romData.Count)
+                    {
+                        romDataOutput += (romData[i] + " ");
+                    }
                 }
                 romDataOutput += '\n';
 

@@ -30,6 +30,49 @@ namespace NESCompilerDecompiler
         private void btnComp_Click(object sender, RoutedEventArgs e)
         {
 
+            string defaultExtensionH = "nesh";
+            string[] filtersH = { "nesh" };
+
+            string pathH = Browse(defaultExtensionH, filtersH);
+
+            if(pathH != "")
+            {
+                string defaultExtensionA = "nesa";
+                string[] filtersA = { "nesa" };
+
+                string pathA = Browse(defaultExtensionA, filtersA);
+
+                if(pathA != "")
+                {
+
+                    string defaultExtension = "nes";
+                    string[] filters = { "nes" };
+
+                    string pathSave = Save(defaultExtension, filters);
+
+                    if(pathSave != "")
+                    {
+                        TextReader tr = new TextReader();
+
+                        tr.ReadFile(pathH, pathA, pathSave);
+
+                        MessageBox.Show("Done!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, no save file chosen.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error, no assembly file chosen.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error, no header file chosen.");
+            }
+
         }
 
         private void btnDecom_Click(object sender, RoutedEventArgs e)
@@ -82,6 +125,38 @@ namespace NESCompilerDecompiler
             Nullable<bool> result = dlg.ShowDialog();
 
             if(result == true)
+            {
+                path = dlg.FileName;
+            }
+
+            return path;
+        }
+
+        private string Save(string defaultExtension, string[] filters)
+        {
+            string path = "";
+
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.FileName = "Compiled Rom";
+            dlg.DefaultExt = defaultExtension;
+
+            string filterText = "";
+
+            for (int i = 0; i < filters.Length; i++)
+            {
+                filterText += filters[i].ToUpper() + " Files (*." + filters[i] + ")|*." + filters[i];
+
+                if (i < filters.Length - 1)
+                {
+                    filterText += "|";
+                }
+            }
+
+            dlg.Filter = filterText;
+
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
             {
                 path = dlg.FileName;
             }
